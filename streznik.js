@@ -57,3 +57,6 @@ if (!process.env.PORT) {
 streznik.listen(process.env.PORT, function() {
   console.log("Strežnik posluša na portu " + process.env.PORT + ".");
 });
+
+var klepetalnicaStreznik = require('./lib/klepetalnica_streznik');
+klepetalnicaStreznik.listen(streznik);
