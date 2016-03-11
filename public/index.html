@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='si'>
+
+<head>
+  <title>OIS klepetalnica</title>
+  <link rel='stylesheet' href='/css/stil.css'></link>
+</head>
+
+<body>
+<div id='vsebina'>
+  <div id='kanal'></div>
+  <div id='seznam-kanalov'></div>
+  <div id='sporocila'></div>
+
+  <form id='poslji-obrazec'>
+    <input id='poslji-sporocilo' />
+    <input id='poslji-gumb' type='submit' value='Pošlji'/>
+
+    <div id='pomoc'>
+      Ukazi za klepet:
+      <ul>
+        <li>Sprememba vzdevka: <code>/vzdevek [vzdevek]</code></li>
+        <li>Pridružitev/kreiranje kanala: <code>/pridruzitev [ime kanala]</code></li>
+      </ul>
+    </div>
+  </form>
+</div>
+
+<script src='/socket.io/socket.io.js' type='text/javascript'></script>
+<script src='https://code.jquery.com/jquery-1.8.0.min.js' type='text/javascript'></script>
+<script src='/js/klepet.js' type='text/javascript'></script>
+<script src='/js/klepet_UI.js' type='text/javascript'></script>
+
+</body>
+</html>
