@@ -32,6 +32,17 @@ Klepet.prototype.procesirajUkaz = function(ukaz) {
       var vzdevek = besede.join(' ');
       this.socket.emit('vzdevekSpremembaZahteva', vzdevek);
       break;
+    case 'zasebno':
+      besede.shift();
+      var besedilo = besede.join(' ');
+      var parametri = besedilo.split('\"');
+      if (parametri) {
+        this.socket.emit('sporocilo', { vzdevek: parametri[1], besedilo: parametri[3] });
+        sporocilo = '(zasebno za ' + parametri[1] + '): ' + parametri[3];
+      } else {
+        sporocilo = 'Neznan ukaz';
+      }
+      break;
     default:
       sporocilo = 'Neznan ukaz.';
       break;
