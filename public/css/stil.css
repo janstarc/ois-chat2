@@ -27,11 +27,16 @@ a {
   margin-right: 10px;
 }
 
-#seznam-kanalov {
+#seznam-kanalov, #seznam-uporabnikov {
   float: right;
   width: 100px;
-  height: 300px;
+  height: 150px;
   overflow: auto;
+}
+
+#seznam {
+  float: right;
+  width: 100px;
 }
 
 #seznam-kanalov div {
