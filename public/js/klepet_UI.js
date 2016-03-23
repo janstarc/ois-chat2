@@ -1,9 +1,13 @@
 function divElementEnostavniTekst(sporocilo) {
+  
+  //if pogoji, ce na vhod pride slika
   var jeSmesko = sporocilo.indexOf('http://sandbox.lavbic.net/teaching/OIS/gradivo/') > -1;
   if (jeSmesko) {
+    //Smesko je v vnosu
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
   } else {
+    //Vsi ostali primeri
     return $('<div style="font-weight: bold;"></div>').text(sporocilo);
   }
 }
