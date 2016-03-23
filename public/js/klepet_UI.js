@@ -92,6 +92,8 @@ $(document).ready(function() {
   });
 });
 
+//Funkcija za dodajanje --> Besedilo preslika v slike
+  //--> Na vhodu dobi text, zamenja ga s sliko
 function dodajSmeske(vhodnoBesedilo) {
   var preslikovalnaTabela = {
     ";)": "wink.png",
@@ -100,6 +102,7 @@ function dodajSmeske(vhodnoBesedilo) {
     ":*": "kiss.png",
     ":(": "sad.png"
   }
+  
   for (var smesko in preslikovalnaTabela) {
     vhodnoBesedilo = vhodnoBesedilo.replace(smesko,
       "<img src='http://sandbox.lavbic.net/teaching/OIS/gradivo/" +
