@@ -4,6 +4,7 @@ function divElementEnostavniTekst(sporocilo) {
   var jeSmesko = sporocilo.indexOf('http://sandbox.lavbic.net/teaching/OIS/gradivo/') > -1;
   if (jeSmesko) {
     //Smesko je v vnosu
+      //Iscemo zacetne trikotne oklepaje, in jih zamenjmo z znakom &lt - izpis bo kot pure koda, ne bo se izvedla skripta
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
   } else {
@@ -56,6 +57,7 @@ $(document).ready(function() {
   });
 
   socket.on('sporocilo', function (sporocilo) {
+    //Zahteva se obdela z zgornjo funkcijo
     var novElement = divElementEnostavniTekst(sporocilo.besedilo);
     $('#sporocila').append(novElement);
   });
@@ -76,6 +78,7 @@ $(document).ready(function() {
     });
   });
 
+  //Nov socket uporabniki --> Najprej seznam izbrisemo, nato ga ponovno napolnimo
   socket.on('uporabniki', function(uporabniki) {
     $('#seznam-uporabnikov').empty();
     for (var i=0; i < uporabniki.length; i++) {
